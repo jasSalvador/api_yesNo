@@ -38,7 +38,12 @@ btnRespuesta.addEventListener('click', async (event) =>  {
 const respuestaSiNo = async() => {
     try {
         let response = await obtenerDatos();
-        respuesta.innerHTML = `Hola ${inputNombre.value}, tu respuesta es: <span class="respAnswer"> ${response.answer}<span>`;
+        let resp = response.answer;
+        if (resp === "yes"){
+            resp = "Si"
+            console.log(resp);
+        }
+        respuesta.innerHTML = `Hola ${inputNombre.value}, tu respuesta es: <span class="respAnswer"> ${resp}<span>`;
         respuestaImg.src = response.image;
 
         seccionInicio.classList.add("ocultar");
